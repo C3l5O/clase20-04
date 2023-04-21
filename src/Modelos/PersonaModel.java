@@ -1,5 +1,8 @@
 package Modelos;
 import java.sql.*;
+import javax.swing.JOptionPane;
+
+
 public class PersonaModel {
 
 String apellidos;
@@ -11,6 +14,8 @@ Connection miConexion;
         this.apellidos = apellidos;
         this.nombre = nombre;
         this.telefono = telefono;
+           
+          
     }
 
     public String getApellidos() {
@@ -44,7 +49,10 @@ public void GuardarPersona()
             Coneccion nuevaConexion = new Coneccion();
             this.miConexion = nuevaConexion.Conectar(nombre, nombre);
             Statement sentencia = miConexion.createStatement();
-            sentencia.execute(String: "insert into Persona values('")");
+            sentencia.execute("insert into Persona values('"+this.getApellidos()+"','"+this.getNombre()+"','"+this.getTelefono()+"')");
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al insertar Registro..."+e.getMessage());
         }
     }
 
