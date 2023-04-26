@@ -42,18 +42,21 @@ Connection miConexion;
         this.telefono = telefono;
     }
 
-public void GuardarPersona()
+public void GuardarPersona(String apellidos, String nombre, int telefono) throws SQLException{
     {
         try
         {
             Coneccion nuevaConexion = new Coneccion();
             this.miConexion = nuevaConexion.Conectar(nombre, nombre);
             Statement sentencia = miConexion.createStatement();
-            sentencia.execute("insert into Persona values('"+this.getApellidos()+"','"+this.getNombre()+"','"+this.getTelefono()+"')");
+            sentencia.execute("insert into Personas values('"+this.getApellidos()+"','"+this.getNombre()+"','"+this.getTelefono()+"')");
         }
         catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Error al insertar Registro..."+e.getMessage());
         }
+        }
     }
-
+    public PersonaModel(){
+        
+    } 
 }

@@ -12,9 +12,9 @@ public class Coneccion {
         
         try{
         DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-        String nombre_servidor = "168.234.74.80";
+        String nombre_servidor = "localhost";
         String numero_puerto = "1521";
-        String sid = "umg";
+        String sid = "xe";
         String url = "jdbc:oracle:thin:@"+ nombre_servidor +":"+numero_puerto+":"+sid;
         
         conexion = DriverManager.getConnection(url,user,pass);
